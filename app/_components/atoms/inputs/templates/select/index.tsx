@@ -18,7 +18,7 @@ import type { GroupBase } from 'react-select'
 import type Select from 'react-select/base'
 import type { FC, Ref } from 'react'
 
-const InputSelect: FC<InputSelectProps> = forwardRef(
+export const InputSelect: FC<InputSelectProps> = forwardRef(
   (
     {
       isError,
@@ -90,5 +90,3 @@ const InputSelect: FC<InputSelectProps> = forwardRef(
   )
 )
 InputSelect.displayName = 'InputSelect'
-
-export default InputSelect

@@ -42,6 +42,10 @@ const UserSchema = new mongoose.Schema<UserDataType>({
     default: 'employee',
     enum: ['admin', 'manager', 'employee'],
   },
+  evaluation: {
+    ref: 'Evaluation',
+    type: mongoose.Schema.Types.ObjectId,
+  },
 })
 
 export default mongoose.models.User ||

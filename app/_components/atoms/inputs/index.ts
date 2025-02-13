@@ -1,3 +1,5 @@
 export { TextArea } from './templates/text-area'
+export { InputSelect } from './templates/select'
 export { Checkbox } from './templates/checkbox'
 export { InputText } from './templates/text'
+export * from './templates/select/types'

@@ -5,7 +5,7 @@ import dbConnect from '@/_lib/database/db-connect'
 import UserModel from '@/_lib/database/models/user'
 
 // types
-import type { UserDataType } from '@/_types/models/user'
+import type { UpdateUserDataType, UserDataType } from '@/_types/models/user'
 
 export const getUsers = async () => {
   await dbConnect()
@@ -30,5 +30,20 @@ export const deleteUser = async (userId: string) => {
   )
 
   if (userResponse.errors) return userResponse.errors
+  else return JSON.parse(JSON.stringify(userResponse)) as UserDataType[]
+}
+
+export const updateUser = async (body: {
+  userId: string
+  data: UpdateUserDataType
+}) => {
+  await dbConnect()
+  const userResponse = await UserModel.findByIdAndUpdate(
+    body.userId,
+    body.data,
+    { new: true }
+  ).catch((error) => error)
+
+  if (userResponse?.errors) return userResponse?.errors
   else return JSON.parse(JSON.stringify(userResponse)) as UserDataType[]
 }
