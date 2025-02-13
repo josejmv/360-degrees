@@ -37,6 +37,8 @@ export const authOptions: AuthOptions = {
       id: 'signup',
       name: 'signup',
       credentials: {
+        name: { type: 'text' },
+        email: { type: 'email' },
         username: { type: 'text' },
         password: { type: 'password' },
         confirmPassword: { type: 'password' },
@@ -47,6 +49,8 @@ export const authOptions: AuthOptions = {
         >('/api/user/register', {
           role: 'admin',
           status: 'active',
+          name: credentials?.name,
+          email: credentials?.email,
           username: credentials?.username,
           password: credentials?.password,
         })

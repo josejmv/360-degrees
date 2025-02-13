@@ -16,6 +16,8 @@ import type { SubmitHandler } from 'react-hook-form'
 import type { FC } from 'react'
 
 type Inputs = {
+  name: string
+  email: string
   submit: string
   username: string
   password: string
@@ -54,7 +56,7 @@ export const SignUpForm: FC = () => {
         <h1 className='text-lg md:text-xl xl:text-2xl'>Crea tu cuenta</h1>
       </div>
 
-      <div className='flex flex-col gap-5 my-8'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-5 my-8'>
         <InputText
           isError={!!formState.errors.username}
           {...register('username', { required: 'Este campo es requerido' })}
@@ -75,6 +77,15 @@ export const SignUpForm: FC = () => {
           }}
         />
         <InputText
+          isError={!!formState.errors.name}
+          {...register('name', { required: 'Este campo es requerido' })}
+          inputWrapperProps={{
+            label: 'Nombre y apellido',
+            hintText: formState.errors.name?.message,
+            labelClassName: 'text-primary-content-shade-darken-12',
+          }}
+        />
+        <InputText
           type='password'
           isError={!!formState.errors.confirmPassword}
           {...register('confirmPassword', {
@@ -85,6 +96,15 @@ export const SignUpForm: FC = () => {
           inputWrapperProps={{
             label: 'Confirmar contraseña',
             hintText: formState.errors.confirmPassword?.message,
+            labelClassName: 'text-primary-content-shade-darken-12',
+          }}
+        />
+        <InputText
+          isError={!!formState.errors.email}
+          {...register('email', { required: 'Este campo es requerido' })}
+          inputWrapperProps={{
+            label: 'Correo electrónico',
+            hintText: formState.errors.email?.message,
             labelClassName: 'text-primary-content-shade-darken-12',
           }}
         />
