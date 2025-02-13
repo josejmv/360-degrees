@@ -1,0 +1,7 @@
+.ds-checkbox[aria-checked='true'] {
+  background-image: url('./assets/selected.svg');
+}
+
+.ds-checkbox[aria-checked='mixed'] {
+  background-image: url('./assets/indeterminate.svg');
+}

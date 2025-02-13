@@ -1,0 +1,39 @@
+{
+  "name": "quick-qr-menu",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.0",
+    "@heroicons/react": "^2.2.0",
+    "axios": "^1.7.9",
+    "mongoose": "^8.9.5",
+    "next": "15.0.3",
+    "next-auth": "^4.24.11",
+    "pusher": "^5.2.0",
+    "pusher-js": "^8.4.0",
+    "qrcode": "^1.5.4",
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react-hook-form": "^7.53.2",
+    "web-push": "^3.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/web-push": "^3.6.4",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.3",
+    "postcss": "^8",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
