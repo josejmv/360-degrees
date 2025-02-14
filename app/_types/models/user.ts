@@ -5,10 +5,9 @@ export type UserDataType = {
   _id: string
   name: string
   email: string
-  picture: string
   username: string
   password: string
-  evaluation: Schema.Types.ObjectId
+  evaluations: Schema.Types.ObjectId[]
   role: 'admin' | 'manager' | 'employee'
   status: 'active' | 'inactive' | 'pending' | 'deleted'
 }
@@ -18,6 +17,8 @@ export type UpdateUserDataType = {
   email?: string
   picture?: string
   password?: string
-  evaluation?: Schema.Types.ObjectId
+  role?: 'admin' | 'manager' | 'employee'
+  $push?: { evaluations: Schema.Types.ObjectId }
+  $pull?: { evaluations: Schema.Types.ObjectId }
   status?: 'active' | 'inactive' | 'pending' | 'deleted'
 }

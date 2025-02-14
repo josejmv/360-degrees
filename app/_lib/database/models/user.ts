@@ -36,16 +36,12 @@ const UserSchema = new mongoose.Schema<UserDataType>({
     default: 'pending',
     enum: ['active', 'inactive', 'pending', 'delete'],
   },
-  picture: { type: String, default: 'no-photo.jpg' },
   role: {
     type: String,
     default: 'employee',
     enum: ['admin', 'manager', 'employee'],
   },
-  evaluation: {
-    ref: 'Evaluation',
-    type: mongoose.Schema.Types.ObjectId,
-  },
+  evaluations: [{ ref: 'Evaluation', type: mongoose.Schema.Types.ObjectId }],
 })
 
 export default mongoose.models.User ||

@@ -7,7 +7,7 @@ export async function POST(req: Request) {
   const evaluation = await sendEvaluation(body)
   await updateUser({
     userId: body.data.user,
-    data: { evaluation: evaluation._id },
+    data: { $push: { evaluations: evaluation._id } },
   })
 
   if (!evaluation) return Response.json({ error: 'Unexpected error' })
