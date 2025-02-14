@@ -2,6 +2,7 @@
 
 // main tools
 import { useMemo, useState } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 // components
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid'
@@ -27,7 +28,7 @@ export const EmployeesTable: FC<EmployeesTableProps> = ({ employees }) => {
     return userCrudCases[useCase as keyof typeof userCrudCases] ?? (() => null)
   }, [showModal])
 
-  const dishId = useMemo(() => {
+  const employeeId = useMemo(() => {
     const [_, id] = showModal.split('-')
     return id
   }, [showModal])
@@ -98,10 +99,13 @@ export const EmployeesTable: FC<EmployeesTableProps> = ({ employees }) => {
       <Dialog
         open={!!showModal}
         onClose={() => setShowModal('')}
-        panelClassName='max-w-screen-sm'
-        className={showModal === 'DELETE' ? '[&>div>div]:px-4' : ''}
+        className={showModal.includes('DELETE') ? '[&>div>div]:px-4' : ''}
+        panelClassName={twMerge(
+          'w-full',
+          showModal.includes('UPDATE') ? 'max-w-screen-lg' : 'max-w-screen-sm'
+        )}
       >
-        <CrudComponent id={dishId} onClose={() => setShowModal('')} />
+        <CrudComponent id={employeeId} onClose={() => setShowModal('')} />
       </Dialog>
     </>
   )

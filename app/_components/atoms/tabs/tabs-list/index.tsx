@@ -15,7 +15,7 @@ export const TabsList = forwardRef<
   <List
     ref={ref}
     className={twMerge(
-      'inline-flex items-center justify-center w-full md:w-auto md:min-w-[400px] overflow-auto',
+      'inline-flex items-center justify-center w-full md:min-w-[400px] overflow-auto',
       className
     )}
     {...props}

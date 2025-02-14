@@ -15,7 +15,9 @@ export type UserDataType = {
 
 export type UpdateUserDataType = {
   name?: string
+  email?: string
   picture?: string
+  password?: string
   evaluation?: Schema.Types.ObjectId
   status?: 'active' | 'inactive' | 'pending' | 'deleted'
 }
