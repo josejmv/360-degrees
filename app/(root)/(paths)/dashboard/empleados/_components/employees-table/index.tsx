@@ -53,7 +53,12 @@ export const EmployeesTable: FC<EmployeesTableProps> = ({ employees }) => {
                 className='border-b border-gray-300 text-center'
               >
                 <td className='border border-gray-300 p-2'>{employee.name}</td>
-                <td className='border border-gray-300 p-2'>{employee.email}</td>
+                <td
+                  title={employee.email}
+                  className='border border-gray-300 p-2 truncate'
+                >
+                  {employee.email}
+                </td>
                 <td className='border border-gray-300 p-2'>
                   {employee.status}
                 </td>
