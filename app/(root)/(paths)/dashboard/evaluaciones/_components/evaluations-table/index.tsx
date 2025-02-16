@@ -5,7 +5,7 @@ import { useMemo, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 // components
-import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid'
+import { EyeIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/solid'
 import { Dialog } from '@/_components/atoms/dialog'
 import { Button } from '@/_components/atoms/button'
 
@@ -58,11 +58,18 @@ export const EvaluationsTable: FC<EvaluationsTableProps> = ({
                 <td className='border border-gray-300 p-2'>
                   {evaluation.score}
                 </td>
-                <td className='border border-gray-300 p-2'>
+                <td
+                  title={evaluation.observation}
+                  className='border border-gray-300 p-2 truncate'
+                >
                   {evaluation.observation}
                 </td>
                 <td className='border border-gray-300 p-2'>
                   <div className='flex justify-center gap-4'>
+                    <EyeIcon
+                      className='w-5 h-5 cursor-pointer'
+                      onClick={() => setShowModal(`WATCH-${evaluation._id}`)}
+                    />
                     <PencilIcon
                       className='w-5 h-5 cursor-pointer'
                       onClick={() => setShowModal(`UPDATE-${evaluation._id}`)}
@@ -78,7 +85,7 @@ export const EvaluationsTable: FC<EvaluationsTableProps> = ({
           ) : (
             <tr>
               <td
-                colSpan={5}
+                colSpan={3}
                 className='border border-gray-300 py-8 text-center'
               >
                 No hay evaluaciones registrados
@@ -88,7 +95,7 @@ export const EvaluationsTable: FC<EvaluationsTableProps> = ({
         </tbody>
         <tfoot>
           <tr>
-            <td colSpan={5} className='border border-gray-300 p-2'>
+            <td colSpan={3} className='border border-gray-300 p-2'>
               <div className='flex justify-end'>
                 <Button onClick={() => setShowModal('CREATE')}>
                   Agregar evaluación
