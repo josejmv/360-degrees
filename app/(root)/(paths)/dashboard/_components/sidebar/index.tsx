@@ -8,7 +8,12 @@ import { Button } from '@/_components/atoms/button'
 import Link from 'next/link'
 
 // icons
-import { HomeIcon, UserIcon, PowerIcon } from '@heroicons/react/24/solid'
+import {
+  HomeIcon,
+  UserIcon,
+  PowerIcon,
+  ClipboardDocumentListIcon,
+} from '@heroicons/react/24/solid'
 
 // types
 import type { FC } from 'react'
@@ -24,6 +29,11 @@ export const Sidebar: FC = () => (
       <Link title='Empleados' href={`/dashboard/empleados`}>
         <Button variant='GHOST' color='TERTIARY' className='mb-4'>
           <UserIcon className='w-6 h-6' />
+        </Button>
+      </Link>
+      <Link title='Evaluaciones' href={`/dashboard/evaluaciones`}>
+        <Button variant='GHOST' color='TERTIARY' className='mb-4'>
+          <ClipboardDocumentListIcon className='w-6 h-6' />
         </Button>
       </Link>
     </div>

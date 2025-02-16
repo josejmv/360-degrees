@@ -32,6 +32,15 @@ export const sendEvaluation = async (body: {
   }
 }
 
+export const getEvaluations = async () => {
+  await dbConnect()
+
+  const evaluations = await EvaluationModel.find().catch((error) => error)
+
+  if (evaluations.errors) return evaluations.errors
+  return JSON.parse(JSON.stringify(evaluations)) as EvaluationDataType[]
+}
+
 export const getEvaluationsByUserId = async (id: string) => {
   await dbConnect()
 

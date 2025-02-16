@@ -23,7 +23,7 @@ type CreateEvaluationProps = {
 type Inputs = {
   score: number
   submit: string
-  description: string
+  observation: string
   employee: SelectOptionType
 }
 
@@ -35,10 +35,8 @@ export const CreateEvaluation: FC<CreateEvaluationProps> = ({ onClose }) => {
    * @description function to handle the submit of the form
    */
   const submitControl: SubmitHandler<Inputs> = async (data) => {
-    const evaluationId = data.employee.value?.split('-')[1]
     const evaluation = await axiosInstance.post('/api/evaluations', {
-      data: { ...data, user: data.employee.value?.split('-')[0] },
-      evaluationId: evaluationId === 'undefined' ? undefined : evaluationId,
+      data: { ...data, user: data.employee.value },
     })
 
     if (evaluation.data._id) onClose()
@@ -84,8 +82,8 @@ export const CreateEvaluation: FC<CreateEvaluationProps> = ({ onClose }) => {
           {...register('employee', { required: 'Este campo es requerido' })}
           options={
             employees?.map((employee) => ({
+              value: employee._id,
               label: employee.name || 'Sin nombre',
-              value: `${employee._id}-${employee.evaluation}`,
             })) ?? []
           }
           inputWrapperProps={{
@@ -106,11 +104,11 @@ export const CreateEvaluation: FC<CreateEvaluationProps> = ({ onClose }) => {
         />
         <TextArea
           rows={3}
-          isError={!!formState.errors.description}
-          {...register('description', { required: 'Este campo es requerido' })}
+          isError={!!formState.errors.observation}
+          {...register('observation', { required: 'Este campo es requerido' })}
           inputWrapperProps={{
             label: 'Notas y observaciones',
-            hintText: formState.errors.description?.message,
+            hintText: formState.errors.observation?.message,
           }}
         />
 
