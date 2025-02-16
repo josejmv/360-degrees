@@ -35,7 +35,7 @@ export const QuickActions: FC = () => {
           tu negocio.
         </p>
         <br />
-        <article className='grid grid-cols-4 gap-2'>
+        <article className='grid grid-cols-1 md:grid-cols-4 gap-2'>
           {actions.map((action) => (
             <Card
               {...action}

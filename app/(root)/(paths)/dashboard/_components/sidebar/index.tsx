@@ -19,7 +19,7 @@ import {
 import type { FC } from 'react'
 
 export const Sidebar: FC = () => (
-  <aside className='bg-white p-8 rounded-r-md drop-shadow-md flex flex-col justify-between'>
+  <aside className='bg-white p-8 rounded-r-md drop-shadow-md hidden md:flex flex-col justify-between'>
     <div>
       <Link title='Dashboard' href={`/dashboard`}>
         <Button variant='GHOST' color='TERTIARY' className='mb-4'>
