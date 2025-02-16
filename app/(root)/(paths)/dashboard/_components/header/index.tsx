@@ -35,9 +35,10 @@ export const Header: FC = () => {
       <Drawer open={showDrawer} onClose={() => setShowDrawer(false)}>
         <div className='px-4 py-8 flex flex-col justify-between h-[95%]'>
           <div>
-            <Link title='Dashboard' href={`/dashboard`}>
+            <Link title='Dashboard' href='/dashboard'>
               <Button
                 color='SECONDARY'
+                onClick={() => setShowDrawer(false)}
                 className='mb-4 flex gap-4 items-center w-full justify-start px-4'
               >
                 <HomeIcon className='w-6 h-6' />
@@ -45,9 +46,10 @@ export const Header: FC = () => {
                 <ArrowRightIcon className='w-6 h-6 ms-auto' />
               </Button>
             </Link>
-            <Link title='Empleados' href={`/dashboard/empleados`}>
+            <Link title='Empleados' href='/dashboard/empleados'>
               <Button
                 color='SECONDARY'
+                onClick={() => setShowDrawer(false)}
                 className='mb-4 flex gap-4 items-center w-full justify-start px-4'
               >
                 <UserIcon className='w-6 h-6' />
@@ -55,9 +57,10 @@ export const Header: FC = () => {
                 <ArrowRightIcon className='w-6 h-6 ms-auto' />
               </Button>
             </Link>
-            <Link title='Evaluaciones' href={`/dashboard/evaluaciones`}>
+            <Link title='Evaluaciones' href='/dashboard/evaluaciones'>
               <Button
                 color='SECONDARY'
+                onClick={() => setShowDrawer(false)}
                 className='mb-4 flex gap-4 items-center w-full justify-start px-4'
               >
                 <ClipboardDocumentListIcon className='w-6 h-6' />

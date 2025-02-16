@@ -5,7 +5,12 @@ import { useMemo, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 // components
-import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid'
+import {
+  TrashIcon,
+  PencilIcon,
+  ArrowDownTrayIcon,
+  ChatBubbleLeftIcon,
+} from '@heroicons/react/24/solid'
 import { Dialog } from '@/_components/atoms/dialog'
 import { Button } from '@/_components/atoms/button'
 
@@ -65,9 +70,17 @@ export const EmployeesTable: FC<EmployeesTableProps> = ({ employees }) => {
                 <td className='border border-gray-300 p-2'>{employee.role}</td>
                 <td className='border border-gray-300 p-2'>
                   <div className='flex justify-center gap-4'>
+                    <ChatBubbleLeftIcon
+                      className='w-5 h-5 cursor-pointer'
+                      onClick={() => setShowModal(`FEEDBACK-${employee._id}`)}
+                    />
                     <PencilIcon
                       className='w-5 h-5 cursor-pointer'
                       onClick={() => setShowModal(`UPDATE-${employee._id}`)}
+                    />
+                    <ArrowDownTrayIcon
+                      className='w-5 h-5 cursor-pointer'
+                      onClick={() => setShowModal(`REPORT-${employee._id}`)}
                     />
                     <TrashIcon
                       className='w-5 h-5 cursor-pointer'

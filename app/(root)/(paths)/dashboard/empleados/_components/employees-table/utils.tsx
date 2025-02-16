@@ -20,9 +20,23 @@ const importDeleteUserComponent = dynamic(
     ),
   { loading: () => <p>CARGANDO</p> }
 )
+const importFeedbackUserComponent = dynamic(
+  () =>
+    import('@/_components/molecules/feedback-user').then(
+      (mod) => mod.FeedbackUser
+    ),
+  { loading: () => <p>CARGANDO</p> }
+)
+const importReportUserComponent = dynamic(
+  () =>
+    import('@/_components/molecules/report-user').then((mod) => mod.ReportUser),
+  { loading: () => <p>CARGANDO</p> }
+)
 
 export const userCrudCases = {
   UPDATE: importUpdateUserComponent,
   CREATE: importCreateUserComponent,
   DELETE: importDeleteUserComponent,
+  REPORT: importReportUserComponent,
+  FEEDBACK: importFeedbackUserComponent,
 }
