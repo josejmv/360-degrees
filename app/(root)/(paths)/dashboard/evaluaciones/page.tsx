@@ -1,13 +1,18 @@
 // main tools
 import { axiosInstance } from '@/_lib/axios-instance'
+import { getServerSession } from 'next-auth'
 
 // components
 import { EvaluationsTable } from './_components/evaluations-table'
+
+// utils
+import { authOptions } from '@/(root)/(paths)/api/auth/[...nextauth]'
 
 // types
 import type { NextPage } from 'next'
 
 const EvaluationsPage: NextPage = async () => {
+  await getServerSession(authOptions)
   const evaluations = await axiosInstance.get('/api/evaluations')
 
   return (

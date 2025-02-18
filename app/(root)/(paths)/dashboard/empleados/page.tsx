@@ -1,13 +1,18 @@
 // main tools
 import { axiosInstance } from '@/_lib/axios-instance'
+import { getServerSession } from 'next-auth'
 
 // components
 import { EmployeesTable } from './_components/employees-table'
+
+// utils
+import { authOptions } from '@/(root)/(paths)/api/auth/[...nextauth]'
 
 // types
 import type { NextPage } from 'next'
 
 const EmployeesPage: NextPage = async () => {
+  await getServerSession(authOptions)
   const employees = await axiosInstance.get('/api/employees')
 
   return (
