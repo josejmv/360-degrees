@@ -15,6 +15,13 @@ const importCreateEvaluationComponent = dynamic(
     ),
   { loading: () => <p>CARGANDO</p> }
 )
+const importUpdateEvaluationComponent = dynamic(
+  () =>
+    import('@/_components/molecules/update-evaluation').then(
+      (mod) => mod.UpdateEvaluation
+    ),
+  { loading: () => <p>CARGANDO</p> }
+)
 const importDeleteEvaluationComponent = dynamic(
   () =>
     import('@/_components/molecules/confirm-delete-evaluation').then(
@@ -26,5 +33,6 @@ const importDeleteEvaluationComponent = dynamic(
 export const evaluationCrudCases = {
   WATCH: importWatchEvaluationComponent,
   CREATE: importCreateEvaluationComponent,
+  UPDATE: importUpdateEvaluationComponent,
   DELETE: importDeleteEvaluationComponent,
 }

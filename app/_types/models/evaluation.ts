@@ -7,3 +7,8 @@ export type EvaluationDataType = {
   observation: string
   user: Schema.Types.ObjectId
 }
+
+export type UpdateEvaluationDataType = {
+  score: number
+  observation: string
+}

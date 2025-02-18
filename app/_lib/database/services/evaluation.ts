@@ -5,7 +5,10 @@ import dbConnect from '@/_lib/database/db-connect'
 import EvaluationModel from '@/_lib/database/models/evaluation'
 
 // types
-import type { EvaluationDataType } from '@/_types/models/evaluation'
+import type {
+  EvaluationDataType,
+  UpdateEvaluationDataType,
+} from '@/_types/models/evaluation'
 
 export const sendEvaluation = async (body: {
   data: EvaluationDataType
@@ -67,6 +70,22 @@ export const deleteEvaluationById = async (id: string) => {
   const evaluation = await EvaluationModel.findByIdAndDelete({ _id: id }).catch(
     (error) => error
   )
+
+  if (evaluation.errors) return evaluation.errors
+  return JSON.parse(JSON.stringify(evaluation)) as EvaluationDataType
+}
+
+export const updateEvaluationById = async (body: {
+  evaluationId: string
+  data: UpdateEvaluationDataType
+}) => {
+  await dbConnect()
+
+  const evaluation = await EvaluationModel.findByIdAndUpdate(
+    body.evaluationId,
+    body.data,
+    { new: true }
+  ).catch((error) => error)
 
   if (evaluation.errors) return evaluation.errors
   return JSON.parse(JSON.stringify(evaluation)) as EvaluationDataType

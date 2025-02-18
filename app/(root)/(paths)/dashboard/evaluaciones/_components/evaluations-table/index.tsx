@@ -2,7 +2,6 @@
 
 // main tools
 import { useMemo, useState } from 'react'
-import { twMerge } from 'tailwind-merge'
 
 // components
 import { EyeIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/solid'
@@ -109,11 +108,8 @@ export const EvaluationsTable: FC<EvaluationsTableProps> = ({
       <Dialog
         open={!!showModal}
         onClose={() => setShowModal('')}
+        panelClassName='w-full max-w-screen-sm'
         className={showModal.includes('DELETE') ? '[&>div>div]:px-4' : ''}
-        panelClassName={twMerge(
-          'w-full',
-          showModal.includes('UPDATE') ? 'max-w-screen-lg' : 'max-w-screen-sm'
-        )}
       >
         <CrudComponent id={evaluationId} onClose={() => setShowModal('')} />
       </Dialog>
