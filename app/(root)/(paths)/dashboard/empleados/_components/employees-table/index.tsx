@@ -8,8 +8,8 @@ import { twMerge } from 'tailwind-merge'
 import {
   TrashIcon,
   PencilIcon,
-  ArrowDownTrayIcon,
   ChatBubbleLeftIcon,
+  DocumentMagnifyingGlassIcon,
 } from '@heroicons/react/24/solid'
 import { Dialog } from '@/_components/atoms/dialog'
 import { Button } from '@/_components/atoms/button'
@@ -78,7 +78,7 @@ export const EmployeesTable: FC<EmployeesTableProps> = ({ employees }) => {
                       className='w-5 h-5 cursor-pointer'
                       onClick={() => setShowModal(`UPDATE-${employee._id}`)}
                     />
-                    <ArrowDownTrayIcon
+                    <DocumentMagnifyingGlassIcon
                       className='w-5 h-5 cursor-pointer'
                       onClick={() => setShowModal(`REPORT-${employee._id}`)}
                     />

@@ -21,9 +21,14 @@ type CreateEvaluationProps = {
 }
 
 type Inputs = {
-  score: number
   submit: string
+  leadership: number
+  initiative: number
+  workQuality: number
   observation: string
+  adaptability: number
+  productivity: number
+  problemsSolving: number
   employee: SelectOptionType
 }
 
@@ -74,7 +79,7 @@ export const CreateEvaluation: FC<CreateEvaluationProps> = ({ onClose }) => {
 
       <form
         onSubmit={handleSubmit(submitControl)}
-        className='flex flex-col gap-5 my-8'
+        className='grid grid-cols-2 gap-5 my-8'
       >
         <InputSelect
           closeMenuOnSelect
@@ -95,11 +100,68 @@ export const CreateEvaluation: FC<CreateEvaluationProps> = ({ onClose }) => {
           min={1}
           max={100}
           type='number'
-          isError={!!formState.errors.score}
-          {...register('score', { required: 'Este campo es requerido' })}
+          isError={!!formState.errors.adaptability}
+          {...register('adaptability', { required: 'Este campo es requerido' })}
           inputWrapperProps={{
-            label: 'Calificación',
-            hintText: formState.errors.score?.message,
+            label: 'Adaptabilidad',
+            hintText: formState.errors.adaptability?.message,
+          }}
+        />
+        <InputText
+          min={1}
+          max={100}
+          type='number'
+          isError={!!formState.errors.leadership}
+          {...register('leadership', { required: 'Este campo es requerido' })}
+          inputWrapperProps={{
+            label: 'Liderazgo',
+            hintText: formState.errors.leadership?.message,
+          }}
+        />
+        <InputText
+          min={1}
+          max={100}
+          type='number'
+          isError={!!formState.errors.initiative}
+          {...register('initiative', { required: 'Este campo es requerido' })}
+          inputWrapperProps={{
+            label: 'Iniciativa',
+            hintText: formState.errors.initiative?.message,
+          }}
+        />
+        <InputText
+          min={1}
+          max={100}
+          type='number'
+          isError={!!formState.errors.workQuality}
+          {...register('workQuality', { required: 'Este campo es requerido' })}
+          inputWrapperProps={{
+            label: 'Calidad de trabajo',
+            hintText: formState.errors.workQuality?.message,
+          }}
+        />
+        <InputText
+          min={1}
+          max={100}
+          type='number'
+          isError={!!formState.errors.productivity}
+          {...register('productivity', { required: 'Este campo es requerido' })}
+          inputWrapperProps={{
+            label: 'Productividad',
+            hintText: formState.errors.productivity?.message,
+          }}
+        />
+        <InputText
+          min={1}
+          max={100}
+          type='number'
+          isError={!!formState.errors.problemsSolving}
+          {...register('problemsSolving', {
+            required: 'Este campo es requerido',
+          })}
+          inputWrapperProps={{
+            label: 'Resolución de problemas',
+            hintText: formState.errors.problemsSolving?.message,
           }}
         />
         <TextArea
@@ -108,6 +170,7 @@ export const CreateEvaluation: FC<CreateEvaluationProps> = ({ onClose }) => {
           {...register('observation', { required: 'Este campo es requerido' })}
           inputWrapperProps={{
             label: 'Notas y observaciones',
+            containerClassName: 'col-span-2',
             hintText: formState.errors.observation?.message,
           }}
         />

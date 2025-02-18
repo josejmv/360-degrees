@@ -20,9 +20,14 @@ type UpdateEvaluationProps = {
 }
 
 type Inputs = {
-  score: number
   submit: string
+  leadership: number
+  initiative: number
+  workQuality: number
   observation: string
+  adaptability: number
+  productivity: number
+  problemsSolving: number
 }
 
 export const UpdateEvaluation: FC<UpdateEvaluationProps> = ({
@@ -44,8 +49,13 @@ export const UpdateEvaluation: FC<UpdateEvaluationProps> = ({
     ;(async () => {
       const response = await axiosInstance.get(`/api/evaluations/${id}`)
 
-      setValue('score', response.data.score)
+      setValue('leadership', response.data.leadership)
+      setValue('initiative', response.data.initiative)
       setValue('observation', response.data.observation)
+      setValue('workQuality', response.data.workQuality)
+      setValue('adaptability', response.data.adaptability)
+      setValue('productivity', response.data.productivity)
+      setValue('problemsSolving', response.data.problemsSolving)
       setLoading(false)
     })()
   }, [id, setValue])
@@ -64,17 +74,74 @@ export const UpdateEvaluation: FC<UpdateEvaluationProps> = ({
 
       <form
         onSubmit={handleSubmit(submitControl)}
-        className='flex flex-col gap-5 my-8'
+        className='grid grid-cols-2 gap-5 my-8'
       >
         <InputText
           min={1}
           max={100}
           type='number'
-          isError={!!formState.errors.score}
-          {...register('score', { required: 'Este campo es requerido' })}
+          isError={!!formState.errors.adaptability}
+          {...register('adaptability', { required: 'Este campo es requerido' })}
           inputWrapperProps={{
             label: 'Calificación',
-            hintText: formState.errors.score?.message,
+            hintText: formState.errors.adaptability?.message,
+          }}
+        />
+        <InputText
+          min={1}
+          max={100}
+          type='number'
+          isError={!!formState.errors.leadership}
+          {...register('leadership', { required: 'Este campo es requerido' })}
+          inputWrapperProps={{
+            label: 'Calificación',
+            hintText: formState.errors.leadership?.message,
+          }}
+        />
+        <InputText
+          min={1}
+          max={100}
+          type='number'
+          isError={!!formState.errors.initiative}
+          {...register('initiative', { required: 'Este campo es requerido' })}
+          inputWrapperProps={{
+            label: 'Calificación',
+            hintText: formState.errors.initiative?.message,
+          }}
+        />
+        <InputText
+          min={1}
+          max={100}
+          type='number'
+          isError={!!formState.errors.workQuality}
+          {...register('workQuality', { required: 'Este campo es requerido' })}
+          inputWrapperProps={{
+            label: 'Calificación',
+            hintText: formState.errors.workQuality?.message,
+          }}
+        />
+        <InputText
+          min={1}
+          max={100}
+          type='number'
+          isError={!!formState.errors.productivity}
+          {...register('productivity', { required: 'Este campo es requerido' })}
+          inputWrapperProps={{
+            label: 'Calificación',
+            hintText: formState.errors.productivity?.message,
+          }}
+        />
+        <InputText
+          min={1}
+          max={100}
+          type='number'
+          isError={!!formState.errors.problemsSolving}
+          {...register('problemsSolving', {
+            required: 'Este campo es requerido',
+          })}
+          inputWrapperProps={{
+            label: 'Calificación',
+            hintText: formState.errors.problemsSolving?.message,
           }}
         />
         <TextArea
@@ -83,6 +150,7 @@ export const UpdateEvaluation: FC<UpdateEvaluationProps> = ({
           {...register('observation', { required: 'Este campo es requerido' })}
           inputWrapperProps={{
             label: 'Notas y observaciones',
+            containerClassName: 'col-span-2',
             hintText: formState.errors.observation?.message,
           }}
         />

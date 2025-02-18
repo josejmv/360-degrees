@@ -42,7 +42,14 @@ export const EvaluationsTable: FC<EvaluationsTableProps> = ({
       <table className='w-full border-collapse table-fixed'>
         <thead>
           <tr>
-            <th className='border border-gray-300 p-2'>Puntuación</th>
+            <th className='border border-gray-300 p-2'>Liderazgo</th>
+            <th className='border border-gray-300 p-2'>Iniciativa</th>
+            <th className='border border-gray-300 p-2'>Adaptabilidad</th>
+            <th className='border border-gray-300 p-2'>Productividad</th>
+            <th className='border border-gray-300 p-2'>Calidad de trabajo</th>
+            <th className='border border-gray-300 p-2'>
+              Resolución de problemas
+            </th>
             <th className='border border-gray-300 p-2'>Observación</th>
             <th className='border border-gray-300 p-2'>Acciones</th>
           </tr>
@@ -55,7 +62,22 @@ export const EvaluationsTable: FC<EvaluationsTableProps> = ({
                 className='border-b border-gray-300 text-center'
               >
                 <td className='border border-gray-300 p-2'>
-                  {evaluation.score}
+                  {evaluation.adaptability}
+                </td>
+                <td className='border border-gray-300 p-2'>
+                  {evaluation.initiative}
+                </td>
+                <td className='border border-gray-300 p-2'>
+                  {evaluation.adaptability}
+                </td>
+                <td className='border border-gray-300 p-2'>
+                  {evaluation.productivity}
+                </td>
+                <td className='border border-gray-300 p-2'>
+                  {evaluation.workQuality}
+                </td>
+                <td className='border border-gray-300 p-2'>
+                  {evaluation.problemsSolving}
                 </td>
                 <td
                   title={evaluation.observation}
@@ -84,7 +106,7 @@ export const EvaluationsTable: FC<EvaluationsTableProps> = ({
           ) : (
             <tr>
               <td
-                colSpan={3}
+                colSpan={8}
                 className='border border-gray-300 py-8 text-center'
               >
                 No hay evaluaciones registrados
@@ -94,7 +116,7 @@ export const EvaluationsTable: FC<EvaluationsTableProps> = ({
         </tbody>
         <tfoot>
           <tr>
-            <td colSpan={3} className='border border-gray-300 p-2'>
+            <td colSpan={8} className='border border-gray-300 p-2'>
               <div className='flex justify-end'>
                 <Button onClick={() => setShowModal('CREATE')}>
                   Agregar evaluación
