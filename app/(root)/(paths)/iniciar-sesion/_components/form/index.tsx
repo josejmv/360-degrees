@@ -54,8 +54,8 @@ export const LoginForm: FC = () => {
           {...register('username', { required: 'Este campo es requerido' })}
           inputWrapperProps={{
             label: 'Nombre de usuario',
+            labelClassName: 'text-primary-content',
             hintText: formState.errors.username?.message,
-            labelClassName: 'text-primary-content-shade-darken-12',
           }}
         />
         <InputText
@@ -64,8 +64,8 @@ export const LoginForm: FC = () => {
           {...register('password', { required: 'Este campo es requerido' })}
           inputWrapperProps={{
             label: 'Contraseña',
+            labelClassName: 'text-primary-content',
             hintText: formState.errors.password?.message,
-            labelClassName: 'text-primary-content-shade-darken-12',
           }}
         />
       </div>

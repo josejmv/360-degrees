@@ -62,8 +62,8 @@ export const SignUpForm: FC = () => {
           {...register('username', { required: 'Este campo es requerido' })}
           inputWrapperProps={{
             label: 'Nombre de usuario',
+            labelClassName: 'text-primary-content',
             hintText: formState.errors.username?.message,
-            labelClassName: 'text-primary-content-shade-darken-12',
           }}
         />
         <InputText
@@ -72,8 +72,8 @@ export const SignUpForm: FC = () => {
           {...register('password', { required: 'Este campo es requerido' })}
           inputWrapperProps={{
             label: 'Contraseña',
+            labelClassName: 'text-primary-content',
             hintText: formState.errors.password?.message,
-            labelClassName: 'text-primary-content-shade-darken-12',
           }}
         />
         <InputText
@@ -81,8 +81,8 @@ export const SignUpForm: FC = () => {
           {...register('name', { required: 'Este campo es requerido' })}
           inputWrapperProps={{
             label: 'Nombre y apellido',
+            labelClassName: 'text-primary-content',
             hintText: formState.errors.name?.message,
-            labelClassName: 'text-primary-content-shade-darken-12',
           }}
         />
         <InputText
@@ -95,8 +95,8 @@ export const SignUpForm: FC = () => {
           })}
           inputWrapperProps={{
             label: 'Confirmar contraseña',
+            labelClassName: 'text-primary-content',
             hintText: formState.errors.confirmPassword?.message,
-            labelClassName: 'text-primary-content-shade-darken-12',
           }}
         />
         <InputText
@@ -104,8 +104,8 @@ export const SignUpForm: FC = () => {
           {...register('email', { required: 'Este campo es requerido' })}
           inputWrapperProps={{
             label: 'Correo electrónico',
+            labelClassName: 'text-primary-content',
             hintText: formState.errors.email?.message,
-            labelClassName: 'text-primary-content-shade-darken-12',
           }}
         />
       </div>

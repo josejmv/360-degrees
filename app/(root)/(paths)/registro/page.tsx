@@ -30,7 +30,7 @@ const SignUpPage: NextPage = async () => {
         sizes='100vw'
         alt='background-picture'
         src='/images/login-page/picture.jpg'
-        className='object-cover object-center brightness-125'
+        className='object-cover object-center brightness-75'
       />
       <div className='max-w-2xl relative md:w-full'>
         <SignUpForm />
