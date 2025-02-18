@@ -120,7 +120,9 @@ export const EmployeesTable: FC<EmployeesTableProps> = ({ employees }) => {
         className={showModal.includes('DELETE') ? '[&>div>div]:px-4' : ''}
         panelClassName={twMerge(
           'w-full',
-          showModal.includes('UPDATE') ? 'max-w-screen-lg' : 'max-w-screen-sm'
+          showModal.includes('REPORT') || showModal.includes('UPDATE')
+            ? 'max-w-screen-lg'
+            : 'max-w-screen-sm'
         )}
       >
         <CrudComponent id={employeeId} onClose={() => setShowModal('')} />
