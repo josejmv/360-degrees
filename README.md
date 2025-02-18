@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 360-degrees
 
-## Getting Started
+In this project, you'll have both backend and frontend implementations.
 
-First, run the development server:
+## Backend
+
+On the backend side, you'll be able to register new users, sign in, create evaluations, and get user evaluations and single entities.
+
+### Endpoints
+
+Navigate to the `(root)/(paths)/api` folder to see all the available endpoints.
+
+## Frontend
+
+Using Next.js, all the components are optimized to be implemented on both the server side and client side. Additionally, by implementing Tailwind CSS, I added some plugins to improve the design implementation. I also created a quick library of components to use throughout the application.
+
+## How to run this app?
+
+1. First, you'll need to add a `.env` file and follow the structure that is implemented in the `.env.template` file. These environment variables will allow you to use NextAuth sessions and connect to a MongoDB Atlas cluster.
+2. Then, run `yarn` to install all the required dependencies.
+3. Finally, run `yarn dev` to start the development server.
 
 ```bash
-npm run dev
-# or
+# Install dependencies
+yarn
+
+# Start the development server
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Go to [360-degrees](https://360-degrees.vercel.app) to see the deployed site.
